@@ -1,0 +1,108 @@
+package main;
+
+
+class point{
+    private double x,y;
+
+    public point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    
+    public point (double x){
+        this.x = this.y=x;
+        
+    }
+    
+    
+  public point (){
+        this.x= this.y = 0;
+        
+    }
+  
+  
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+    
+  public void deplacer(int dx, int dy){
+      x+=dx;   y+=dy;
+  }
+   
+}
+
+
+class PointA extends point{
+
+    public PointA(double x, double y) {
+        super(x, y);
+    }
+
+    public PointA(double x) {
+        super(x);
+    }
+
+    public PointA() {
+    }
+    
+    void affiche(){
+        System.out.println(+super.getX()+","+super.getY());
+    }
+}
+
+
+
+class PointNom extends PointA {
+   private char nom;
+
+    public PointNom(double x, double y,char nom) {
+        super(x,y);
+        this.nom = nom;
+    }
+
+    public PointNom(double x ,char nom) {
+        super(x);
+        this.nom = nom;
+    }
+
+    public PointNom(char nom) {
+        this.nom = nom;
+    }
+
+    
+    
+    
+
+   public  void affichecordnom() {
+        System.out.println(this.nom +" "); 
+         super.affiche();
+     }
+  
+   
+}
+
+
+
+public class Main {
+
+    
+    public static void main(String[] args) {
+        
+        point p = new point();
+        System.out.println(p.getX()+" "+p.getY());
+        
+        
+        PointA a =new PointA();
+        a.affiche();
+        
+        
+        PointNom b = new PointNom('m');
+        b.affichecordnom();
+    }
+    
+}
